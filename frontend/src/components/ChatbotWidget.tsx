@@ -115,14 +115,18 @@ const HumanMessageBubble: React.FC<{ message: MessageWithAgent }> = ({ message }
 // AI message bubble component
 const AiMessageBubble: React.FC<{ message: MessageWithAgent }> = ({ message }) => {
     return (
-        <div className="max-w-[80%] bg-white dark:bg-zinc-800 shadow-sm border border-gray-100 dark:border-zinc-700 rounded-2xl rounded-tl-none p-3 text-sm">
-            <ReactMarkdown components={mdComponents} remarkPlugins={[remarkGfm]}>
-                {message.content}
-            </ReactMarkdown>
-            {message.agent && (
-                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Agent: {message.agent}</p>
+        <>
+            {message.content && (
+                <div className="max-w-[80%] bg-white dark:bg-zinc-800 shadow-sm border border-gray-100 dark:border-zinc-700 rounded-2xl rounded-tl-none p-3 text-sm">
+                    <ReactMarkdown components={mdComponents} remarkPlugins={[remarkGfm]}>
+                        {message.content}
+                    </ReactMarkdown>
+                    {message.agent && (
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Agent: {message.agent}</p>
+                    )}
+                </div>
             )}
-        </div>
+        </>
     );
 };
 

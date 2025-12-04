@@ -306,7 +306,7 @@ function App() {
         }
       }
 
-      // setIsLoading(false);
+      setIsLoading(false);
 
     } catch (error) {
       console.error("Error:", error);
